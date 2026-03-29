@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #5c6bc0;
+  --color-accent-muted: #8b7082;
+  --color-background-light: #1e1e2e;
+  --color-background-dark: #0d0d10;
+  --color-sidebar-dark: #0d0d10;
+  --color-surface: #161620;
+  --color-muted-text: #94a3b8;
+  --color-soft-white: #e2e8f0;
+  --color-badge-green: #4a7c59;
+  --color-badge-amber: #8a6e3a;
+  --color-badge-red: #7a4040;
+  --font-display: "Inter", sans-serif;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-background-dark);
+  color: var(--color-soft-white);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card-accent {
+  background: rgba(139, 112, 130, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.08;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Waveform bars for recording state */
+@keyframes wave {
+  0%, 100% { height: 4px; }
+  50% { height: 24px; }
+}
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+}
+.waveform-bar {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-accent-muted);
+  border-radius: 2px;
+  animation: wave 1.2s ease-in-out infinite;
+}
+.waveform-bar--paused {
+  animation-play-state: paused;
+}
